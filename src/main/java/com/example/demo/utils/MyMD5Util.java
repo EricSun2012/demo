@@ -165,9 +165,8 @@ public class MyMD5Util {
         // 声明一个保存数据库中口令消息摘要的变量
         byte[] digestInDb = new byte[pwdInDb.length - SALT_LENGTH];
         // 取得数据库中口令的消息摘要
-        System
-                .arraycopy(pwdInDb, SALT_LENGTH, digestInDb, 0,
-                        digestInDb.length);
+        System.arraycopy(pwdInDb, SALT_LENGTH, digestInDb, 0,
+                digestInDb.length);
         // 比较根据输入口令生成的消息摘要和数据库中消息摘要是否相同
         if (Arrays.equals(digest, digestInDb)) {
             // 口令正确返回口令匹配消息
