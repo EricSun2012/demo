@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="assets/js/jquery.min.js"></script>
+    <link rel="loginbutton" href="assets/css/login.css" type="text/css">
+    <script src="assets/js/login.js"></script>
+</head>
+<body>
+<title>登录</title>
+<div class="content">
+    <div class="login-wrap">
+        <form id="user_login" action="">
+            <h3>登 录</h3>
+            <input class="name" name="" id="accountName" type="text" placeholder="请输入用户名">
+            <input class="code" name="password" id="password" type="password" placeholder="请输入密码">
+            <div class="btn">
+                <input type="button" id="submit" class="submit" value="登录" onclick="check(this.form)">
+                <input type="reset" id="reset" class="reset" value="重置">
+            </div>
+            <div id="CheckMsg" class="msg"></div>
+        </form>
+    </div>
+</div>
+
+</body>

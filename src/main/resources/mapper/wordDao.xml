@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为WordDao接口方法提供sql语句配置 -->
+<mapper namespace="com.example.demo.dao.WordDao">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.bean.Word">
+        <id column="wId" property="id" jdbcType="INTEGER"/>
+        <id column="uId" property="uid" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="LONGVARCHAR"/>
+        <result column="word" property="content" jdbcType="LONGVARCHAR"/>
+        <result column="timestamp" property="time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+
+    <select id="searchWordByKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT * FROM blog WHERE word LIKE CONCAT('%',#{key},'%');
+    </select>
+
+
+    <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">-->
+    <!--DELETE FROM user_ssm WHERE id=#{id,jdbcType=INTEGER}-->
+    <!--</delete>-->
+
+    <insert id="insert" parameterType="com.example.demo.bean.Word">
+        INSERT INTO blog
+        <trim prefix="(" suffix=")">
+            uId,title,word,timestamp
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")">
+            #{uid},
+            #{title},
+            #{content},
+            #{time}
+        </trim>
+
+    </insert>
+
+
+</mapper>
